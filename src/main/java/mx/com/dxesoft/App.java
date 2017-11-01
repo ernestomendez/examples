@@ -9,6 +9,16 @@ import mx.com.dxesoft.lists.CycleList;
 public class App 
 {
     public static void main( String[] args ) {
+//        cycleList();
+
+        BalancedBrakets balancedBrakets = new BalancedBrakets();
+
+        System.out.println(balancedBrakets.isBalanced("{[()]}"));
+        System.out.println(balancedBrakets.isBalanced("{[(])}"));
+        System.out.println(balancedBrakets.isBalanced("{{[[(())]]}}"));
+    }
+
+    private static void cycleList() {
         CycleList cycleList = new CycleList();
 
         CycleList.Node<Integer> head = cycleList.new Node<>(0);
