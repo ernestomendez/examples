@@ -19,10 +19,6 @@ public class BalancedBrakets {
 
         final String[] brackets = expression.split("");
 
-        for (String bracket : brackets) {
-            System.out.println(bracket);
-        }
-
         boolean balanced = true;
 
         for (String bracket : brackets) {
