@@ -11,11 +11,12 @@ public class App
     public static void main( String[] args ) {
 //        cycleList();
 
-        BalancedBrakets balancedBrakets = new BalancedBrakets();
+        BalancedBraketsChar balancedBrakets = new BalancedBraketsChar();
 
-        System.out.println(balancedBrakets.isBalanced("{[()]}"));
-        System.out.println(balancedBrakets.isBalanced("{[(])}"));
+        System.out.println(balancedBrakets.isBalanced("{[()]}{{}}"));
+        System.out.println(balancedBrakets.isBalanced("{[](){[()]}}}"));
         System.out.println(balancedBrakets.isBalanced("{{[[(())]]}}"));
+        System.out.println(balancedBrakets.isBalanced("{{{}{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{"));
     }
 
     private static void cycleList() {
