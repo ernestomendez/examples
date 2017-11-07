@@ -13,28 +13,35 @@ The subset of brackets enclosed within the confines of a matched pair of bracket
  */
 public class BalancedBraketsChar {
 
-    private final Deque<Character> deque = new ArrayDeque<>();
+//    private Deque<Character> deque = new ArrayDeque<>();
 
-    public boolean isBalanced(String expression) {
+    public static boolean isBalanced(String expression) {
+        Deque<Character> deque = new ArrayDeque<>();
 
         final char[] chars = expression.trim().toCharArray();
-        boolean balanced = true;
 
-        for (char bracket: chars) {
-            if (isOpen(bracket)) {
-                deque.addFirst(bracket);
-            } else {
-                if(!remove(bracket)) {
-                    balanced = false;
-                    break;
+        boolean balanced = true;
+        if (chars.length > 0 ) {
+
+            for (char bracket : chars) {
+                if (isOpen(bracket)) {
+                    deque.addFirst(bracket);
+                } else {
+                    if (!remove(bracket, deque)) {
+                        balanced = false;
+                        break;
+                    }
                 }
             }
+        } else {
+            balanced = false;
         }
 
-        return balanced;
+        //se debe verificar que no fueron solamente brackets que abren.
+        return balanced && deque.size() == 0;
     }
 
-    private boolean isOpen(char character) {
+    private static boolean isOpen(char character) {
         boolean out = false;
         if (character == '(' ||
                 character == '{' ||
@@ -45,19 +52,25 @@ public class BalancedBraketsChar {
         return out;
     }
 
-    private boolean remove(char bracket) {
+    private static boolean remove(char bracket, Deque<Character> deque) {
         if (deque.size() > 0) {
             char open = getOpeningBracket(bracket);
 
-            final char first = deque.removeFirst();
+            if (open != '@') {
 
-            return open == first;
+                final char first = deque.removeFirst();
+
+                return open == first;
+            }
+
+            return true;
+
         }
 
         return false;
     }
 
-    private char getOpeningBracket(Character bracket) {
+    private static char getOpeningBracket(Character bracket) {
 
         char open;
         switch (bracket) {
@@ -67,7 +80,7 @@ public class BalancedBraketsChar {
                     break;
             case '}': open = '{';
                     break;
-            default: open = ' ';
+            default: open = '@';
         }
 
         return open;

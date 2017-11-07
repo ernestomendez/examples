@@ -32,7 +32,7 @@ public class BalancedBrakets {
             }
         }
 
-        return balanced;
+        return balanced && deque.size() == 0;
     }
 
     private boolean isOpen(String character) {
@@ -50,9 +50,14 @@ public class BalancedBrakets {
         if (deque.size() > 0) {
             String open = getOpeningBracket(bracket);
 
-            final String first = deque.removeFirst();
+            if (!open.equals("@")) {
 
-            return open.equals(first);
+                final String first = deque.removeFirst();
+
+              return open.equals(first);
+            }
+
+            return true;
         }
 
         return false;
@@ -68,7 +73,7 @@ public class BalancedBrakets {
                     break;
             case "}": open = "{";
                     break;
-            default: open = "";
+            default: open = "@";
         }
 
         return open;
