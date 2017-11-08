@@ -15,18 +15,29 @@ public class App
     public static void main( String[] args ) {
 //        cycleList();
 
-        balancedBrackets();
+//        balancedBrackets();
+
+        MyQueue<Integer> queue = new MyQueue<Integer>();
+
+//        queue.enqueue(42);
+//        queue.dequeue();
+//        queue.enqueue(14);
+//        System.out.println(queue.peek());
+//        queue.enqueue(28);
+//        System.out.println(queue.peek());
+//        queue.enqueue(60);
+//        queue.enqueue(78);
+//        queue.dequeue();
+//        queue.dequeue();
+
+//        System.out.println(queue.peek());
+
+        queue.dequeue();
+        queue.dequeue();
+
+
 
     }
-
-//    public static void main(String[] args) {
-//        Scanner in = new Scanner(System.in);
-//        int t = in.nextInt();
-//        for (int a0 = 0; a0 < t; a0++) {
-//            String expression = in.next();
-//            System.out.println( (isBalanced(expression)) ? "YES" : "NO" );
-//        }
-//    }
 
     private static void balancedBrackets() {
 
