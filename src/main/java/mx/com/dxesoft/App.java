@@ -17,26 +17,62 @@ public class App
 
 //        balancedBrackets();
 
+//        myQueue();
+
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+
+        BinarySearchTree.Node arbol = binarySearchTree.new Node();
+//        BinarySearchTree.Node arbol2 = new BinarySearchTree().new Node();
+
+        arbol.data =5;
+        creaArbol(arbol, 2, 6);
+        creaArbol(arbol.left, 1, 3);
+
+        creaArbol(arbol.right,4, 7);
+        creaArbol(arbol.right.right, 5,8);
+
+        System.out.println(binarySearchTree.checkBST(arbol));
+        System.out.println(binarySearchTree.checkBST(null));
+
+
+    }
+
+    private static void myQueue() {
         MyQueue<Integer> queue = new MyQueue<Integer>();
 
-//        queue.enqueue(42);
-//        queue.dequeue();
-//        queue.enqueue(14);
-//        System.out.println(queue.peek());
-//        queue.enqueue(28);
-//        System.out.println(queue.peek());
-//        queue.enqueue(60);
-//        queue.enqueue(78);
-//        queue.dequeue();
-//        queue.dequeue();
-
-//        System.out.println(queue.peek());
-
+        queue.enqueue(42);
+        queue.dequeue();
+        queue.enqueue(14);
+        System.out.println(queue.peek());
+        queue.enqueue(28);
+        System.out.println(queue.peek());
+        queue.enqueue(60);
+        queue.enqueue(78);
         queue.dequeue();
         queue.dequeue();
 
+        System.out.println(queue.peek());
 
+        queue.dequeue();
+        queue.dequeue();
+    }
 
+    private static void creaArbol(BinarySearchTree.Node arbol, int izq, int der) {
+        BinarySearchTree.Node left = new BinarySearchTree().new Node();
+        left.data =izq;
+        arbol.left = left;
+        BinarySearchTree.Node right = new BinarySearchTree().new Node();
+        right.data = der;
+        arbol.right = right;
+    }
+
+    private static void creaArbol(BinarySearchTree.Node arbol, int val) {
+//        BinarySearchTree.Node left = new BinarySearchTree().new Node();
+//        left.data = val;
+//        arbol.left = left;
+        BinarySearchTree.Node right = new BinarySearchTree().new Node();
+        right.data = val;
+        arbol.right = right;
     }
 
     private static void balancedBrackets() {
